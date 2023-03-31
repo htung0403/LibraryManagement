@@ -1,0 +1,12 @@
+D:\Windows Programming\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe.config
+D:\Windows Programming\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe
+D:\Windows Programming\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.pdb
+D:\Windows Programming\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
+D:\Windows Programming\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.SuggestedBindingRedirects.cache
+D:\Windows Programming\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.LoginForm.resources
+D:\Windows Programming\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
+D:\Windows Programming\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
+D:\Windows Programming\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
+D:\Windows Programming\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
+D:\Windows Programming\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
+D:\Windows Programming\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Form1.resources
