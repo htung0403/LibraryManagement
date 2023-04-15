@@ -44,6 +44,20 @@ namespace LibraryManagement
             conn.Open();
             LoadData();
         }
+        // Check if the publisher ID already exists in the database
+        private bool CheckMaNXBExists(string maNXB)
+        {
+            bool exists = false;
+            using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM NhaXuatBan WHERE MaNXB = @MaNXB", conn))
+            {
+                cmd.Parameters.AddWithValue("@MaNXB", maNXB);
+                int count = (int)cmd.ExecuteScalar();
+                exists = count > 0;
+            }
+            return exists;
+        }
+
+        //Add Books
         private void btnAddBooks_Click(object sender, EventArgs e)
         {
             // Lấy thông tin nhập từ người dùng
@@ -99,19 +113,7 @@ namespace LibraryManagement
             }
         }
 
-        // Kiểm tra mã NXB đã tồn tại trong cơ sở dữ liệu hay chưa
-        private bool CheckMaNXBExists(string maNXB)
-        {
-            bool exists = false;
-            using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM NhaXuatBan WHERE MaNXB = @MaNXB", conn))
-            {
-                cmd.Parameters.AddWithValue("@MaNXB", maNXB);
-                int count = (int)cmd.ExecuteScalar();
-                exists = count > 0;
-            }
-            return exists;
-        }
-
+        //Click to show infomation in textbox
         private void dgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -134,7 +136,8 @@ namespace LibraryManagement
                 MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        
+        //Edit Info Books
         private void btnEdit_Click(object sender, EventArgs e)
         {
             try
@@ -170,6 +173,7 @@ namespace LibraryManagement
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Đã cập nhật thông tin sách thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadData();
                         }
                         else
                         {
@@ -183,7 +187,8 @@ namespace LibraryManagement
                 MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        
+        //Delete Books
         private void btnDel_Click(object sender, EventArgs e)
         {
             string maSach = tbID.Text;
@@ -197,8 +202,8 @@ namespace LibraryManagement
             }
             LoadData();
         }
-        //Region Search Books
-        #region SEARCH
+        
+        //Search Books
         private string querySearch(string id, string name,string cate,string publisherID, string year, string autID,string amount, string price) 
         {
             string query = "SELECT * FROM Sach WHERE 1=1";
@@ -274,6 +279,5 @@ namespace LibraryManagement
             }
 
         }
-        #endregion
     }
 }
