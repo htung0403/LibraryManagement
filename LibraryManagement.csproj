@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,11 +47,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\FormBooks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\FormBooks.Designer.cs">
+      <DependentUpon>FormBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForm.cs" />
+    <Compile Include="DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDashBoard.Designer.cs">
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLibraryLoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLibraryLoan.Designer.cs">
+      <DependentUpon>FormLibraryLoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMembers.Designer.cs">
+      <DependentUpon>FormMembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LIBRARYDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LIBRARYDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -60,25 +91,50 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ThemeColor.cs" />
+    <EmbeddedResource Include="Forms\FormBooks.resx">
+      <DependentUpon>FormBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDashBoard.resx">
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLibraryLoan.resx">
+      <DependentUpon>FormLibraryLoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMembers.resx">
+      <DependentUpon>FormMembers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <None Include="LIBRARYDataSet.xsc">
+      <DependentUpon>LIBRARYDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LIBRARYDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LIBRARYDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LIBRARYDataSet.xss">
+      <DependentUpon>LIBRARYDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -87,6 +143,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Liberay Management System\add book.gif" />
+    <Content Include="Liberay Management System\addstudent.gif" />
+    <Content Include="Liberay Management System\books_library_shelves_138556_1920x1080.jpg" />
+    <Content Include="Liberay Management System\close.png" />
+    <Content Include="Liberay Management System\deash1.jpg" />
+    <None Include="Resources\dashboard.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\open-book.png" />
+    <None Include="Resources\menu-button-of-three-horizontal-lines.png" />
+    <None Include="Resources\list.png" />
+    <None Include="Resources\online-library1.png" />
+    <None Include="Resources\online-library.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\hide.png" />
+    <None Include="Resources\eye.png" />
+    <Resource Include="Liberay Management System\eye.png" />
+    <Content Include="Liberay Management System\giphy.gif" />
+    <Resource Include="Liberay Management System\hide.png" />
+    <Content Include="Liberay Management System\icons8-add-book-48.png" />
+    <Content Include="Liberay Management System\icons8-add-book-96.png" />
+    <Content Include="Liberay Management System\icons8-add-user-male-50.png" />
+    <Content Include="Liberay Management System\icons8-address-book-100.png" />
+    <Content Include="Liberay Management System\icons8-book-philosophy-50.png" />
+    <Content Include="Liberay Management System\icons8-bookmark-book-64.png" />
+    <Content Include="Liberay Management System\icons8-books-50.png" />
+    <Content Include="Liberay Management System\icons8-exit-sign-50.png" />
+    <Content Include="Liberay Management System\icons8-return-book-50.png" />
+    <Content Include="Liberay Management System\icons8-return-book-64.png" />
+    <Content Include="Liberay Management System\icons8-student-male-100.png" />
+    <Content Include="Liberay Management System\icons8-student-male-1000.png" />
+    <Content Include="Liberay Management System\icons8-student-male-50.png" />
+    <Content Include="Liberay Management System\icons8-view-50.png" />
+    <Content Include="Liberay Management System\icons8-view-501.png" />
+    <Content Include="Liberay Management System\image_processing20191025-19942-14gi0n7.gif" />
+    <Content Include="Liberay Management System\issueBook.gif" />
+    <Content Include="Liberay Management System\login-.png" />
+    <Content Include="Liberay Management System\login-1.png" />
+    <Content Include="Liberay Management System\motivation1.jpg" />
+    <Content Include="Liberay Management System\password %281%29.png" />
+    <Content Include="Liberay Management System\password %282%29.png" />
+    <Content Include="Liberay Management System\password.png" />
+    <Content Include="Liberay Management System\profile.png" />
+    <Content Include="Liberay Management System\search.gif" />
+    <Content Include="Liberay Management System\search1.gif" />
+    <Content Include="Liberay Management System\view book gif.gif" />
+    <Content Include="Liberay Management System\view book gif1.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

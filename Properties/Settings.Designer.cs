@@ -32,5 +32,15 @@ namespace LibraryManagement.Properties {
                 return ((string)(this["thuvienConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=LIBRARY;Integrated Security=True")]
+        public string LIBRARYConnectionString {
+            get {
+                return ((string)(this["LIBRARYConnectionString"]));
+            }
+        }
     }
 }

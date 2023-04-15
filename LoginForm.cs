@@ -30,21 +30,6 @@ namespace LibraryManagement
             InitializeComponent();
         }
 
-        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.No)
-            {
-                e.Cancel = true; // hủy sự kiện FormClosing
-            }
-        }
-
-        private void btExit_Click(object sender, EventArgs e)
-        {
-            DialogResult dg = MessageBox.Show("Bạn có muốn thoát ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dg == DialogResult.Yes)
-                Application.Exit();
-        }
-
         private void btLogin_Click(object sender, EventArgs e)
         {
             conn.Open();
@@ -60,11 +45,12 @@ namespace LibraryManagement
             if (code == 1)
             {
                 MessageBox.Show("Chào mừng đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
-                Form1 f1 = new Form1();
+                
+                DashBoard f1 = new DashBoard();
                 f1.Visible = true;
                 f1.Show();
-                
+                this.Hide();
+
             }
             else if (code == 2)
             {
@@ -87,24 +73,61 @@ namespace LibraryManagement
             //MessageBox.Show(s, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void cbShow_CheckedChanged(object sender, EventArgs e)
+        private void txtPass_TextChanged(object sender, EventArgs e)
         {
-            if (cbShow.Checked)
-            {
-                txtPass.PasswordChar = (char)0;
-            }
-            else
+            if (picBoxShow.Image != eye_image)
             {
                 txtPass.PasswordChar = '*';
             }
+            else
+            {
+                txtPass.PasswordChar = (char)0;
+            }
         }
 
-        private void LoginForm_FormClosing_1(object sender, FormClosingEventArgs e)
+        private void txtUsername_MouseClick(object sender, MouseEventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (txtUsername.Text == "Username")
             {
-                e.Cancel = true; // hủy sự kiện FormClosing
+                txtUsername.Clear();
             }
+        }
+
+        private void txtPass_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (txtPass.Text == "Password")
+            {
+                txtPass.Clear();
+            }
+        }
+        Image eye_image = Image.FromFile(@"D:\\DBMS\\LibraryManagement\\Resource\\eye.png");
+        Image hide_image = Image.FromFile(@"D:\\DBMS\\LibraryManagement\\Resource\\hide.png");
+        private void picBoxShow_Click(object sender, EventArgs e)
+        {
+            if (picBoxShow.Image != eye_image)
+            {
+                // Hiển thị mật khẩu
+                txtPass.PasswordChar = (char)0;
+
+                // Tải hình ảnh mới từ đường dẫn hide_image_path vào PictureBox
+                picBoxShow.Image = eye_image;
+            }
+            else if (picBoxShow.Image != hide_image)
+            {
+                //MessageBox.Show("Bạn vừa nhấp vào hình ảnh!");
+                // Ẩn mật khẩu
+                txtPass.PasswordChar = '*';
+
+                // Tải hình ảnh mới từ đường dẫn eye_image_path vào PictureBox
+                picBoxShow.Image = hide_image;
+            }        
+        }
+
+        private void picBoxClose_Click(object sender, EventArgs e)
+        {
+            DialogResult dg = MessageBox.Show("Bạn có muốn thoát ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dg == DialogResult.Yes)
+                Application.Exit();
         }
     }
 }
