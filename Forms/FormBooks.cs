@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Web.Configuration;
 using System.Data.SqlClient;
+using LibraryManagement.Forms;
 
 namespace LibraryManagement
 {
@@ -57,11 +58,72 @@ namespace LibraryManagement
 
         private void btnAddBooks_Click(object sender, EventArgs e)
         {
-            cmd = conn.CreateCommand();
-            cmd.CommandText= "Add";
-            cmd.ExecuteNonQuery();
-            LoadData();
+            // Lấy thông tin nhập từ người dùng
+            string tenSach = tbName.Text;
+            string maTheLoai = cbCategory.Text;
+            string maNXB = tbPublisherID.Text;
+            int namXuatBan = int.Parse(tbPublishYear.Text);
+            string maTG = tbAutID.Text;
+            int soLuong = int.Parse(tbAmount.Text);
+            decimal gia = decimal.Parse(tbPrice.Text);
+
+            // Kiểm tra mã NXB trong cơ sở dữ liệu
+            bool nxbExists = CheckMaNXBExists(maNXB);
+
+            // Nếu mã NXB không tồn tại, hiển thị hộp thoại cho phép thêm mới NXB
+            if (!nxbExists)
+            {
+                DialogResult result = MessageBox.Show("Mã NXB không tồn tại trong cơ sở dữ liệu. Bạn có muốn thêm mới NXB này không?", "Thông báo", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    AddPublisherForm addNewPublisherForm = new AddPublisherForm(maNXB);
+                    addNewPublisherForm.ShowDialog();
+                    // Sau khi thêm mới NXB, kiểm tra lại mã NXB trong cơ sở dữ liệu
+                    nxbExists = CheckMaNXBExists(maNXB);
+                }
+            }
+
+            // Thực hiện thêm sách mới vào cơ sở dữ liệu
+            if (nxbExists)
+            {
+                try
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("ThemSach", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TenSach", tenSach);
+                        cmd.Parameters.AddWithValue("@MaTheLoai", maTheLoai);
+                        cmd.Parameters.AddWithValue("@MaNXB", maNXB);
+                        cmd.Parameters.AddWithValue("@NamXuatBan", namXuatBan);
+                        cmd.Parameters.AddWithValue("@MaTG", maTG);
+                        cmd.Parameters.AddWithValue("@SoLuong", soLuong);
+                        cmd.Parameters.AddWithValue("@Gia", gia);
+                        cmd.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Thêm sách mới thành công!", "Thông báo");
+                    LoadData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message, "Thông báo");
+                }
+            }
         }
+
+        // Kiểm tra mã NXB đã tồn tại trong cơ sở dữ liệu hay chưa
+        private bool CheckMaNXBExists(string maNXB)
+        {
+            bool exists = false;
+            using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM NhaXuatBan WHERE MaNXB = @MaNXB", conn))
+            {
+                cmd.Parameters.AddWithValue("@MaNXB", maNXB);
+                int count = (int)cmd.ExecuteScalar();
+                exists = count > 0;
+            }
+            return exists;
+        }
+
 
         private void dgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
         {
