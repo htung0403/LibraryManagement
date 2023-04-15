@@ -27,3 +27,4 @@ D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.FormBook
 D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.FormDashBoard.resources
 D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.FormLibraryLoan.resources
 D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.FormMembers.resources
+D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.AddPublisherForm.resources

@@ -98,6 +98,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThemeColor.cs" />
+    <EmbeddedResource Include="Forms\AddPublisherForm.resx">
+      <DependentUpon>AddPublisherForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormBooks.resx">
       <DependentUpon>FormBooks.cs</DependentUpon>
     </EmbeddedResource>

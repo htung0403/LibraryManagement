@@ -43,6 +43,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -243,6 +244,14 @@
             this.panel6.Size = new System.Drawing.Size(3, 687);
             this.panel6.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(1060, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(286, 687);
+            this.panel1.TabIndex = 6;
+            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -255,6 +264,7 @@
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -285,6 +295,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

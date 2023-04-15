@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.Web.Configuration;
 using System.Data.SqlClient;
 using LibraryManagement.Forms;
+using System.Diagnostics;
+using System.Security.Policy;
+using System.Xml.Linq;
 
 namespace LibraryManagement
 {
@@ -41,21 +44,6 @@ namespace LibraryManagement
             conn.Open();
             LoadData();
         }
-
-        private void dgvBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //int i;
-            //i = dgvBook.CurrentRow.Index;
-            //tbID.Text = dgvBook.Rows[i].Cells[0].Value.ToString();
-            //tbName.Text = dgvBook.Rows[i].Cells[1].Value.ToString();
-            //cbCategory.Text = dgvBook.Rows[i].Cells[2].Value.ToString();
-            //tbPublisherID.Text = dgvBook.Rows[i].Cells[3].Value.ToString();
-            //tbPublishYear.Text = dgvBook.Rows[i].Cells[4].Value.ToString();
-            //tbAutID.Text = dgvBook.Rows[i].Cells[5].Value.ToString();
-            //tbAmount.Text = dgvBook.Rows[i].Cells[6].Value.ToString();
-            //tbPrice.Text = dgvBook.Rows[i].Cells[7].Value.ToString();
-        }
-
         private void btnAddBooks_Click(object sender, EventArgs e)
         {
             // Lấy thông tin nhập từ người dùng
@@ -123,7 +111,6 @@ namespace LibraryManagement
             }
             return exists;
         }
-
 
         private void dgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -196,5 +183,97 @@ namespace LibraryManagement
                 MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            string maSach = tbID.Text;
+
+            using (SqlCommand command = new SqlCommand("XOA_SACH", conn))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@MaSach", maSach);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Xóa sách thành công!");
+            }
+            LoadData();
+        }
+        //Region Search Books
+        #region SEARCH
+        private string querySearch(string id, string name,string cate,string publisherID, string year, string autID,string amount, string price) 
+        {
+            string query = "SELECT * FROM Sach WHERE 1=1";
+            if (!string.IsNullOrEmpty(id))
+            {
+                query += " AND MaSach LIKE '%" + id + "%'";
+            }
+            if (!string.IsNullOrEmpty(name))
+            {
+                query += " AND TenSach LIKE '%" + name + "%'";
+            }
+            if (!string.IsNullOrEmpty(cate))
+            {
+                query += " AND MaTheLoai LIKE '%" + cate + "%'";
+            }
+            if (!string.IsNullOrEmpty(publisherID))
+            {
+                query += " AND MaNXB LIKE '%" + publisherID + "%'";
+            }
+            if (!string.IsNullOrEmpty(year))
+            {
+                query += " AND NamXuatBan LIKE '%" + year + "%'";
+            }
+            if (!string.IsNullOrEmpty(autID))
+            {
+                query += " AND MaTG LIKE '%" + autID + "%'";
+            }
+            if (!string.IsNullOrEmpty(amount))
+            {
+                query += " AND SoLuong LIKE '%" + amount + "%'";
+            }
+            if (!string.IsNullOrEmpty(price))
+            {
+                query += " AND GiaBan LIKE '%" + price + "%'";
+            }
+            return query;
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string id = tbID.Text;
+            string name = tbName.Text;
+            string cate = cbCategory.Text;
+            string publisherID = tbPublisherID.Text;
+            string year = tbPublishYear.Text;
+            string autID = tbAutID.Text;
+            string amount = tbAmount.Text;
+            string price = tbPrice.Text;
+
+            //string query = "SELECT * FROM Sach WHERE (MaSach LIKE '%' + @TuKhoa + '%' OR TenSach LIKE '%' + @TuKhoa + '%' OR MaTheLoai LIKE '%' + @TuKhoa + '%' OR MaNXB LIKE '%' + @TuKhoa + '%' OR NamXuatBan LIKE '%' + @TuKhoa + '%' OR MaTG LIKE '%' + @TuKhoa + '%')";
+
+            // Tạo câu lệnh SQL để tìm kiếm sách dựa trên các thông tin đã nhập
+
+            string query = querySearch(id, name, cate, publisherID, year, autID, amount, price);
+            // Thực hiện truy vấn SQL
+            using (SqlCommand command = new SqlCommand(query, conn))
+            {
+                DataTable dt = new DataTable();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    dt.Load(reader);
+                }
+
+                if (dt.Rows.Count > 0)
+                {
+                    // Nếu tìm thấy kết quả thì hiển thị lên DataGridView
+                    dgvBook.DataSource = dt;
+                }
+                else
+                {
+                    // Nếu không tìm thấy kết quả thì hiển thị thông báo
+                    MessageBox.Show("Không tìm thấy sách nào phù hợp với từ khóa tìm kiếm");
+                }
+            }
+
+        }
+        #endregion
     }
 }

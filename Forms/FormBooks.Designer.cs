@@ -276,6 +276,7 @@
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "SEARCH";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnDel
             // 
@@ -285,6 +286,7 @@
             this.btnDel.TabIndex = 11;
             this.btnDel.Text = "DELETE";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // dgvBook
             // 
@@ -296,7 +298,6 @@
             this.dgvBook.Size = new System.Drawing.Size(742, 316);
             this.dgvBook.TabIndex = 13;
             this.dgvBook.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBook_CellClick);
-            this.dgvBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBook_CellContentClick);
             // 
             // lIBRARYDataSetBindingSource
             // 
