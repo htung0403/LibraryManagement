@@ -295,7 +295,7 @@
             this.dgvBook.Name = "dgvBook";
             this.dgvBook.RowHeadersWidth = 51;
             this.dgvBook.RowTemplate.Height = 24;
-            this.dgvBook.Size = new System.Drawing.Size(742, 316);
+            this.dgvBook.Size = new System.Drawing.Size(1030, 316);
             this.dgvBook.TabIndex = 13;
             this.dgvBook.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBook_CellClick);
             // 
@@ -313,7 +313,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 687);
+            this.ClientSize = new System.Drawing.Size(1094, 687);
             this.Controls.Add(this.dgvBook);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnDel);

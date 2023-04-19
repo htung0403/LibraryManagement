@@ -15,7 +15,7 @@ namespace LibraryManagement.Forms
     {
         SqlConnection conn;
         SqlCommand cmd;
-        string str = @"Data Source=.;Initial Catalog=LIBRARY;Integrated Security=True";
+        string str = @"Data Source=.;Initial Catalog=LIBRARY1;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         public AddPublisherForm(string maNXB)
@@ -49,7 +49,8 @@ namespace LibraryManagement.Forms
                 // Lấy mã NXB lớn nhất hiện có trong bảng NXB
                 string getMaxMaNXBQuery = "SELECT MAX(MaNXB) FROM NhaXuatBan";
                 SqlCommand getMaxMaNXBCmd = new SqlCommand(getMaxMaNXBQuery, conn);
-                string maxMaNXB = (string)getMaxMaNXBCmd.ExecuteScalar();
+                object result1 = getMaxMaNXBCmd.ExecuteScalar();
+                string maxMaNXB = Convert.IsDBNull(result1) ? "" : result1.ToString();
 
                 // Tạo mã NXB mới dựa trên mã NXB lớn nhất hiện có
                 string newMaNXB;

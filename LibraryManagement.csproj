@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddLoanDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddLoanDetail.Designer.cs">
+      <DependentUpon>AddLoanDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddPublisherForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,11 +84,23 @@
     <Compile Include="Forms\FormLibraryLoan.Designer.cs">
       <DependentUpon>FormLibraryLoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormLoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLoan.Designer.cs">
+      <DependentUpon>FormLoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormMembers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormMembers.Designer.cs">
       <DependentUpon>FormMembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormReturn.Designer.cs">
+      <DependentUpon>FormReturn.cs</DependentUpon>
     </Compile>
     <Compile Include="LIBRARYDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -98,6 +116,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThemeColor.cs" />
+    <EmbeddedResource Include="Forms\AddLoanDetail.resx">
+      <DependentUpon>AddLoanDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddPublisherForm.resx">
       <DependentUpon>AddPublisherForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,8 +134,14 @@
     <EmbeddedResource Include="Forms\FormLibraryLoan.resx">
       <DependentUpon>FormLibraryLoan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLoan.resx">
+      <DependentUpon>FormLoan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMembers.resx">
       <DependentUpon>FormMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormReturn.resx">
+      <DependentUpon>FormReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

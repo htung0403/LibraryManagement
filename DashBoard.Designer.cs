@@ -42,12 +42,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -228,29 +225,11 @@
             // 
             // panelMain
             // 
-            this.panelMain.Controls.Add(this.panel6);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMain.Location = new System.Drawing.Point(252, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(808, 687);
+            this.panelMain.Size = new System.Drawing.Size(1094, 687);
             this.panelMain.TabIndex = 5;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(805, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(3, 687);
-            this.panel6.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1060, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(286, 687);
-            this.panel1.TabIndex = 6;
             // 
             // DashBoard
             // 
@@ -264,7 +243,6 @@
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -273,7 +251,6 @@
             this.panelMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panelMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,8 +271,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panelMain;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel1;
     }
 }
 

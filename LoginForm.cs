@@ -19,7 +19,7 @@ namespace LibraryManagement
         new SqlConnectionStringBuilder()
         {
             DataSource = "hoangtung",
-            InitialCatalog = "LIBRARY",
+            InitialCatalog = "LIBRARY1",
             IntegratedSecurity = true,
             UserID = "TenDangNhap",
             Password = "MatKhau"
@@ -45,7 +45,6 @@ namespace LibraryManagement
             if (code == 1)
             {
                 MessageBox.Show("Chào mừng đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
                 DashBoard f1 = new DashBoard();
                 f1.Visible = true;
                 f1.Show();

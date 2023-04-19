@@ -33,9 +33,6 @@
             this.lIBRARYDataSet = new LibraryManagement.LIBRARYDataSet();
             this.dgvMember = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnDel = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -72,8 +69,9 @@
             // 
             // dgvMember
             // 
+            this.dgvMember.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMember.Location = new System.Drawing.Point(31, 286);
+            this.dgvMember.Location = new System.Drawing.Point(31, 220);
             this.dgvMember.Name = "dgvMember";
             this.dgvMember.RowHeadersWidth = 51;
             this.dgvMember.RowTemplate.Height = 24;
@@ -83,41 +81,13 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(654, 215);
+            this.btnSearch.Location = new System.Drawing.Point(360, 609);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(112, 44);
             this.btnSearch.TabIndex = 19;
             this.btnSearch.Text = "SEARCH";
             this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // btnDel
-            // 
-            this.btnDel.Location = new System.Drawing.Point(449, 215);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(112, 44);
-            this.btnDel.TabIndex = 18;
-            this.btnDel.Text = "DELETE";
-            this.btnDel.UseVisualStyleBackColor = true;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(242, 215);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(112, 44);
-            this.btnEdit.TabIndex = 17;
-            this.btnEdit.Text = "EDIT";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(37, 215);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(112, 44);
-            this.btnAdd.TabIndex = 16;
-            this.btnAdd.Text = "ADD";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tbAddress
             // 
@@ -267,13 +237,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 687);
-            this.Controls.Add(this.dgvMember);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.btnDel);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.dgvMember);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMembers";
             this.Text = "FormMembers";
@@ -297,9 +264,6 @@
         private LIBRARYDataSet lIBRARYDataSet;
         private System.Windows.Forms.DataGridView dgvMember;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnDel;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label3;

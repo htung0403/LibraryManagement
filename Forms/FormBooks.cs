@@ -20,7 +20,7 @@ namespace LibraryManagement
     {
         SqlConnection conn;
         SqlCommand cmd;
-        string str = @"Data Source=.;Initial Catalog=LIBRARY;Integrated Security=True";
+        string str = @"Data Source=.;Initial Catalog=LIBRARY1;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
 
@@ -56,7 +56,6 @@ namespace LibraryManagement
             }
             return exists;
         }
-
         //Add Books
         private void btnAddBooks_Click(object sender, EventArgs e)
         {
@@ -112,7 +111,6 @@ namespace LibraryManagement
                 }
             }
         }
-
         //Click to show infomation in textbox
         private void dgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -136,8 +134,56 @@ namespace LibraryManagement
                 MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
         //Edit Info Books
+        //private void btnEdit_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        // Lấy thông tin sách từ các điều khiển trên form
+        //        string id = tbID.Text;
+        //        string name = tbName.Text;
+        //        string category = cbCategory.Text;
+        //        string publisherId = tbPublisherID.Text;
+        //        int publishYear = int.Parse(tbPublishYear.Text);
+        //        string authorId = tbAutID.Text;
+        //        int amount = int.Parse(tbAmount.Text);
+        //        decimal price = decimal.Parse(tbPrice.Text);
+
+        //        // Cập nhật thông tin sách trong bảng SQL
+        //        using (SqlConnection connection = new SqlConnection(str))
+        //        {
+        //            connection.Open();
+        //            string query = "SuaThongTinSach";
+        //            using (SqlCommand command = new SqlCommand(query, connection))
+        //            {
+        //                command.CommandType = CommandType.StoredProcedure;
+        //                command.Parameters.AddWithValue("@MaSach", id);
+        //                command.Parameters.AddWithValue("@TenSach", name);
+        //                command.Parameters.AddWithValue("@MaTheLoai", category);
+        //                command.Parameters.AddWithValue("@MaNXB", publisherId);
+        //                command.Parameters.AddWithValue("@NamXuatBan", publishYear);
+        //                command.Parameters.AddWithValue("@MaTG", authorId);
+        //                command.Parameters.AddWithValue("@SoLuong", amount);
+        //                command.Parameters.AddWithValue("@Gia", price);
+        //                int rowsAffected = command.ExecuteNonQuery();
+        //                if (rowsAffected > 0)
+        //                {
+        //                    MessageBox.Show("Đã cập nhật thông tin sách thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //                    LoadData();
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show("Không tìm thấy sách cần cập nhật.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+        //Delete Books
         private void btnEdit_Click(object sender, EventArgs e)
         {
             try
@@ -153,31 +199,44 @@ namespace LibraryManagement
                 decimal price = decimal.Parse(tbPrice.Text);
 
                 // Cập nhật thông tin sách trong bảng SQL
-                string connectionString = "Data Source=.;Initial Catalog=LIBRARY;Integrated Security=True";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(str))
                 {
                     connection.Open();
-                    string query = "UPDATE Sach SET TenSach = @Name, MaTheLoai = @Category, MaNXB = @PublisherID, " +
-                        "NamXuatBan = @PublishYear, MaTG = @AuthorID, SoLuong = @Amount, Gia = @Price WHERE MaSach = @ID";
+                    string query = "SuaThongTinSach";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@ID", id);
-                        command.Parameters.AddWithValue("@Name", name);
-                        command.Parameters.AddWithValue("@Category", category);
-                        command.Parameters.AddWithValue("@PublisherID", publisherId);
-                        command.Parameters.AddWithValue("@PublishYear", publishYear);
-                        command.Parameters.AddWithValue("@AuthorID", authorId);
-                        command.Parameters.AddWithValue("@Amount", amount);
-                        command.Parameters.AddWithValue("@Price", price);
-                        int rowsAffected = command.ExecuteNonQuery();
-                        if (rowsAffected > 0)
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@MaSach", id);
+                        command.Parameters.AddWithValue("@TenSach", name);
+                        command.Parameters.AddWithValue("@MaTheLoai", category);
+                        command.Parameters.AddWithValue("@MaNXB", publisherId);
+                        command.Parameters.AddWithValue("@NamXuatBan", publishYear);
+                        command.Parameters.AddWithValue("@MaTG", authorId);
+                        command.Parameters.AddWithValue("@SoLuong", amount);
+                        command.Parameters.AddWithValue("@Gia", price);
+                        try
                         {
-                            MessageBox.Show("Đã cập nhật thông tin sách thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadData();
+                            int rowsAffected = command.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Đã cập nhật thông tin sách thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LoadData();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy sách cần cập nhật.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
-                        else
+                        catch (SqlException ex)
                         {
-                            MessageBox.Show("Không tìm thấy sách cần cập nhật.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            if (ex.Number == 50000)
+                            {
+                                MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                throw ex;
+                            }
                         }
                     }
                 }
@@ -187,8 +246,7 @@ namespace LibraryManagement
                 MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
-        //Delete Books
+
         private void btnDel_Click(object sender, EventArgs e)
         {
             string maSach = tbID.Text;
@@ -202,64 +260,46 @@ namespace LibraryManagement
             }
             LoadData();
         }
-        
         //Search Books
-        private string querySearch(string id, string name,string cate,string publisherID, string year, string autID,string amount, string price) 
-        {
-            string query = "SELECT * FROM Sach WHERE 1=1";
-            if (!string.IsNullOrEmpty(id))
-            {
-                query += " AND MaSach LIKE '%" + id + "%'";
-            }
-            if (!string.IsNullOrEmpty(name))
-            {
-                query += " AND TenSach LIKE '%" + name + "%'";
-            }
-            if (!string.IsNullOrEmpty(cate))
-            {
-                query += " AND MaTheLoai LIKE '%" + cate + "%'";
-            }
-            if (!string.IsNullOrEmpty(publisherID))
-            {
-                query += " AND MaNXB LIKE '%" + publisherID + "%'";
-            }
-            if (!string.IsNullOrEmpty(year))
-            {
-                query += " AND NamXuatBan LIKE '%" + year + "%'";
-            }
-            if (!string.IsNullOrEmpty(autID))
-            {
-                query += " AND MaTG LIKE '%" + autID + "%'";
-            }
-            if (!string.IsNullOrEmpty(amount))
-            {
-                query += " AND SoLuong LIKE '%" + amount + "%'";
-            }
-            if (!string.IsNullOrEmpty(price))
-            {
-                query += " AND GiaBan LIKE '%" + price + "%'";
-            }
-            return query;
-        }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string id = tbID.Text;
-            string name = tbName.Text;
-            string cate = cbCategory.Text;
-            string publisherID = tbPublisherID.Text;
-            string year = tbPublishYear.Text;
-            string autID = tbAutID.Text;
-            string amount = tbAmount.Text;
-            string price = tbPrice.Text;
+            // Lấy thông tin từ các controls trên form
+            string id = tbID.Text.Trim();
+            string name = tbName.Text.Trim();
+            string category = cbCategory.Text.Trim();
+            string publisherID = tbPublisherID.Text.Trim();
+            int? year = null;
+            if (!string.IsNullOrEmpty(tbPublishYear.Text.Trim()))
+            {
+                year = int.Parse(tbPublishYear.Text.Trim());
+            }
+            string authorID = tbAutID.Text.Trim();
+            int? amount = null;
+            if (!string.IsNullOrEmpty(tbAmount.Text.Trim()))
+            {
+                amount = int.Parse(tbAmount.Text.Trim());
+            }
+            decimal? price = null;
+            if (!string.IsNullOrEmpty(tbPrice.Text.Trim()))
+            {
+                price = decimal.Parse(tbPrice.Text.Trim());
+            }
+            // Tạo câu lệnh SQL để truy vấn sử dụng function
+            string query = "SELECT * FROM dbo.TimKiemSach(@MaSach, @TenSach, @MaTheLoai, @MaNXB, @NamXuatBan, @MaTG, @SoLuong, @GiaBan)";
 
-            //string query = "SELECT * FROM Sach WHERE (MaSach LIKE '%' + @TuKhoa + '%' OR TenSach LIKE '%' + @TuKhoa + '%' OR MaTheLoai LIKE '%' + @TuKhoa + '%' OR MaNXB LIKE '%' + @TuKhoa + '%' OR NamXuatBan LIKE '%' + @TuKhoa + '%' OR MaTG LIKE '%' + @TuKhoa + '%')";
-
-            // Tạo câu lệnh SQL để tìm kiếm sách dựa trên các thông tin đã nhập
-
-            string query = querySearch(id, name, cate, publisherID, year, autID, amount, price);
             // Thực hiện truy vấn SQL
             using (SqlCommand command = new SqlCommand(query, conn))
             {
+                // Truyền tham số vào function
+                command.Parameters.AddWithValue("@MaSach", string.IsNullOrEmpty(id) ? (object)DBNull.Value : id);
+                command.Parameters.AddWithValue("@TenSach", string.IsNullOrEmpty(name) ? (object)DBNull.Value : name);
+                command.Parameters.AddWithValue("@MaTheLoai", string.IsNullOrEmpty(category) ? (object)DBNull.Value : category);
+                command.Parameters.AddWithValue("@MaNXB", string.IsNullOrEmpty(publisherID) ? (object)DBNull.Value : publisherID);
+                command.Parameters.AddWithValue("@NamXuatBan", year.HasValue ? (object)year.Value : (object)DBNull.Value);
+                command.Parameters.AddWithValue("@MaTG", string.IsNullOrEmpty(authorID) ? (object)DBNull.Value : authorID);
+                command.Parameters.AddWithValue("@SoLuong", amount.HasValue ? (object)amount.Value : (object)DBNull.Value);
+                command.Parameters.AddWithValue("@GiaBan", price.HasValue ? (object)price.Value : (object)DBNull.Value);
+
                 DataTable dt = new DataTable();
                 using (SqlDataReader reader = command.ExecuteReader())
                 {

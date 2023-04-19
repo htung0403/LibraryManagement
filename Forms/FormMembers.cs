@@ -16,7 +16,7 @@ namespace LibraryManagement.Forms
     {
         SqlConnection conn;
         SqlCommand cmd;
-        string str = @"Data Source=.;Initial Catalog=LIBRARY;Integrated Security=True";
+        string str = @"Data Source=.;Initial Catalog=LIBRARY1;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         public FormMembers()
@@ -58,69 +58,9 @@ namespace LibraryManagement.Forms
                 MessageBox.Show("Không hợp lệ: " + ex.Message);
             }
         }
-
-        void btnEdit_Click(object sender, EventArgs e)
+       private void btnSearch_Click(object sender, EventArgs e)
         {
-            int maDocGia = int.Parse(tbID.Text);
-            string tenDocGia = tbName.Text;
-            string diaChi = tbAddress.Text;
 
-            try
-            {
-                SqlCommand cmd = new SqlCommand("SuaThongTinDocGia", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@MaDocGia", maDocGia);
-                cmd.Parameters.AddWithValue("@TenDocGia", tenDocGia);
-                cmd.Parameters.AddWithValue("@DiaChi", diaChi);
-
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Sửa thông tin đọc giả thành công!");
-                LoadData();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
         }
-
-        void btnAdd_Click(object sender, EventArgs e)
-        {
-            int maDocGia = int.Parse(tbID.Text);
-            string tenDocGia = tbName.Text;
-            string diaChi = tbAddress.Text;
-            string cmnd = tbPersonalID.Text;
-            DateTime ngayBatDau = dtpStart.Value;
-            DateTime ngayKetThuc = dtpEnd.Value;
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand("ThemDocGia", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@MaDocGia", maDocGia);
-                cmd.Parameters.AddWithValue("@TenDocGia", tenDocGia);
-                cmd.Parameters.AddWithValue("@DiaChi", diaChi);
-                cmd.Parameters.AddWithValue("@CMND", cmnd);
-                cmd.Parameters.AddWithValue("@NgayBatDau", ngayBatDau);
-                cmd.Parameters.AddWithValue("@NgayHetHan", ngayKetThuc);
-
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Thêm độc giả thành công!");
-                LoadData();
-                tbID.Clear();
-                tbName.Clear();
-                tbAddress.Clear();
-                tbPersonalID.Clear();
-                dtpStart.Value = DateTime.Now;
-                dtpEnd.Value = DateTime.Now;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
-        }
-
     }
 }

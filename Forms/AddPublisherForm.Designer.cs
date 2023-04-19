@@ -91,6 +91,7 @@
             // 
             // dgvPublisher
             // 
+            this.dgvPublisher.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvPublisher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.dgvPublisher, "dgvPublisher");
             this.dgvPublisher.Name = "dgvPublisher";

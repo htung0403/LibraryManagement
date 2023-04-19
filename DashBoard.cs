@@ -88,5 +88,14 @@ namespace LibraryManagement
             OpenChildForm(f, null);
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
