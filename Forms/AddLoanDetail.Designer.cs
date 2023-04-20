@@ -29,22 +29,36 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAddLoanID = new System.Windows.Forms.Button();
-            this.tbEmpID = new System.Windows.Forms.TextBox();
+            this.tbCondition = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbNote = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbAmount = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.tbBookID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbMemberID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbLoanID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLoan = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoan)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnAddLoanID);
-            this.panel1.Controls.Add(this.tbEmpID);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.tbCondition);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.tbNote);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.tbAmount);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.btnAdd);
+            this.panel1.Controls.Add(this.tbBookID);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.tbMemberID);
             this.panel1.Controls.Add(this.label2);
@@ -53,46 +67,94 @@
             this.panel1.Controls.Add(this.dgvLoan);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1129, 404);
+            this.panel1.Size = new System.Drawing.Size(783, 404);
             this.panel1.TabIndex = 0;
             // 
-            // btnAddLoanID
+            // tbCondition
             // 
-            this.btnAddLoanID.Location = new System.Drawing.Point(243, 52);
-            this.btnAddLoanID.Name = "btnAddLoanID";
-            this.btnAddLoanID.Size = new System.Drawing.Size(120, 40);
-            this.btnAddLoanID.TabIndex = 7;
-            this.btnAddLoanID.Text = "Add";
-            this.btnAddLoanID.UseVisualStyleBackColor = true;
-            this.btnAddLoanID.Click += new System.EventHandler(this.btnAddLoanID_Click);
+            this.tbCondition.Location = new System.Drawing.Point(625, 71);
+            this.tbCondition.Name = "tbCondition";
+            this.tbCondition.Size = new System.Drawing.Size(153, 22);
+            this.tbCondition.TabIndex = 13;
             // 
-            // tbEmpID
+            // label6
             // 
-            this.tbEmpID.Location = new System.Drawing.Point(502, 15);
-            this.tbEmpID.Name = "tbEmpID";
-            this.tbEmpID.Size = new System.Drawing.Size(100, 22);
-            this.tbEmpID.TabIndex = 6;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(561, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 16);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Condition";
+            // 
+            // tbNote
+            // 
+            this.tbNote.Location = new System.Drawing.Point(625, 46);
+            this.tbNote.Name = "tbNote";
+            this.tbNote.Size = new System.Drawing.Size(153, 22);
+            this.tbNote.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(571, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 16);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Note";
+            // 
+            // tbAmount
+            // 
+            this.tbAmount.Location = new System.Drawing.Point(361, 74);
+            this.tbAmount.Name = "tbAmount";
+            this.tbAmount.Size = new System.Drawing.Size(153, 22);
+            this.tbAmount.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(307, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 16);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Amount";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(114, 127);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(120, 40);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // tbBookID
+            // 
+            this.tbBookID.Location = new System.Drawing.Point(361, 46);
+            this.tbBookID.Name = "tbBookID";
+            this.tbBookID.Size = new System.Drawing.Size(153, 22);
+            this.tbBookID.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(411, 18);
+            this.label3.Location = new System.Drawing.Point(307, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 16);
+            this.label3.Size = new System.Drawing.Size(55, 16);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Employee ID";
+            this.label3.Text = "Book ID";
             // 
             // tbMemberID
             // 
-            this.tbMemberID.Location = new System.Drawing.Point(287, 15);
+            this.tbMemberID.Location = new System.Drawing.Point(91, 74);
             this.tbMemberID.Name = "tbMemberID";
-            this.tbMemberID.Size = new System.Drawing.Size(100, 22);
+            this.tbMemberID.Size = new System.Drawing.Size(153, 22);
             this.tbMemberID.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(208, 18);
+            this.label2.Location = new System.Drawing.Point(12, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 3;
@@ -100,15 +162,15 @@
             // 
             // tbLoanID
             // 
-            this.tbLoanID.Location = new System.Drawing.Point(72, 15);
+            this.tbLoanID.Location = new System.Drawing.Point(91, 46);
             this.tbLoanID.Name = "tbLoanID";
-            this.tbLoanID.Size = new System.Drawing.Size(100, 22);
+            this.tbLoanID.Size = new System.Drawing.Size(153, 22);
             this.tbLoanID.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 18);
+            this.label1.Location = new System.Drawing.Point(13, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 16);
             this.label1.TabIndex = 1;
@@ -122,14 +184,25 @@
             this.dgvLoan.Name = "dgvLoan";
             this.dgvLoan.RowHeadersWidth = 51;
             this.dgvLoan.RowTemplate.Height = 24;
-            this.dgvLoan.Size = new System.Drawing.Size(1129, 218);
+            this.dgvLoan.ShowEditingIcon = false;
+            this.dgvLoan.Size = new System.Drawing.Size(783, 218);
             this.dgvLoan.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(0, -3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(154, 37);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Loan detail";
             // 
             // AddLoanDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 428);
+            this.ClientSize = new System.Drawing.Size(807, 428);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AddLoanDetail";
@@ -148,10 +221,17 @@
         private System.Windows.Forms.TextBox tbLoanID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvLoan;
-        private System.Windows.Forms.TextBox tbEmpID;
+        private System.Windows.Forms.TextBox tbBookID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbMemberID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnAddLoanID;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox tbCondition;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbNote;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbAmount;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
     }
 }

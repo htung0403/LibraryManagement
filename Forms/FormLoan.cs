@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,17 +40,6 @@ namespace LibraryManagement.Forms
             table.Clear();
             adapter.Fill(table);
             dgvLoan.DataSource = table;
-        }
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            string id = tbLoanID.Text.Trim();
-
-            string query = "";
-
-        }
-        private void dgvDataOfBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
         private bool CheckLoanIDExists(string maMT)
         {
@@ -97,6 +89,7 @@ namespace LibraryManagement.Forms
                 {
                     AddLoanDetail addLoanDetail = new AddLoanDetail(loanID,memberID);
                     addLoanDetail.ShowDialog();
+                    LoadData();
                 }
             }
         }
@@ -117,6 +110,44 @@ namespace LibraryManagement.Forms
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string loanID = tbLoanID.Text.Trim();
+            int memberID = 0;
+            if (!int.TryParse(tbMemberID.Text.Trim(), out memberID))
+            {
+                memberID = 0;
+            }
+            string empID = tbEmployeeID.Text.Trim();
+
+            string query = "SELECT * FROM dbo.TimKiemMuonTra(@MaMT, @MaDG, @MaNV)";
+            using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+            {
+                adapter.SelectCommand.CommandType = CommandType.Text;
+
+                adapter.SelectCommand.Parameters.AddWithValue("@MaMT", string.IsNullOrEmpty(loanID) ? (object)DBNull.Value : loanID);
+                adapter.SelectCommand.Parameters.AddWithValue("@MaDG", memberID == 0 ? (object)DBNull.Value : memberID);
+                adapter.SelectCommand.Parameters.AddWithValue("@MaNV", string.IsNullOrEmpty(empID) ? (object)DBNull.Value : empID);
+
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    dgvLoan.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy mã mượn trả nào phù hợp với từ khóa tìm kiếm");
+                }
+            }
+        }
+
+        private void btnLoanDetail_Click(object sender, EventArgs e)
+        {
+            AddLoanDetail addLoanDetail = new AddLoanDetail("","");
+            addLoanDetail.ShowDialog();
         }
     }
 }

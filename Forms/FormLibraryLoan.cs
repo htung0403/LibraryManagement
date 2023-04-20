@@ -41,7 +41,7 @@ namespace LibraryManagement.Forms
 
         private void traToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormReturn f = new FormReturn();
+            FormReturnBook f = new FormReturnBook();
             OpenChildForm(f, null);
         }
     }

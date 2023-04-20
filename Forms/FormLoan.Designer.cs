@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbLoanID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnLoanDetail = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoan)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +56,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnLoanDetail);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.dgvLoan);
@@ -71,16 +73,17 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(653, 58);
+            this.btnSearch.Location = new System.Drawing.Point(467, 58);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(119, 45);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(294, 58);
+            this.btnAdd.Location = new System.Drawing.Point(269, 58);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(119, 45);
             this.btnAdd.TabIndex = 7;
@@ -148,6 +151,16 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Loan ID";
             // 
+            // btnLoanDetail
+            // 
+            this.btnLoanDetail.Location = new System.Drawing.Point(657, 58);
+            this.btnLoanDetail.Name = "btnLoanDetail";
+            this.btnLoanDetail.Size = new System.Drawing.Size(142, 45);
+            this.btnLoanDetail.TabIndex = 9;
+            this.btnLoanDetail.Text = "Search loan detail";
+            this.btnLoanDetail.UseVisualStyleBackColor = true;
+            this.btnLoanDetail.Click += new System.EventHandler(this.btnLoanDetail_Click);
+            // 
             // FormLoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -180,5 +193,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbLoanID;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnLoanDetail;
     }
 }
