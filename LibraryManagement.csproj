@@ -66,7 +66,6 @@
     <Compile Include="Forms\FormBooks.Designer.cs">
       <DependentUpon>FormBooks.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChildForm.cs" />
     <Compile Include="DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +77,18 @@
     </Compile>
     <Compile Include="Forms\FormDashBoard.Designer.cs">
       <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormEmployeeLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEmployeeLogin.Designer.cs">
+      <DependentUpon>FormEmployeeLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEmployees.Designer.cs">
+      <DependentUpon>FormEmployees.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormLibraryLoan.cs">
       <SubType>Form</SubType>
@@ -102,12 +113,6 @@
     </Compile>
     <Compile Include="Forms\FormReturn.Designer.cs">
       <DependentUpon>FormReturn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormReturnBook.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormReturnBook.Designer.cs">
-      <DependentUpon>FormReturnBook.cs</DependentUpon>
     </Compile>
     <Compile Include="LIBRARYDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -138,6 +143,12 @@
     <EmbeddedResource Include="Forms\FormDashBoard.resx">
       <DependentUpon>FormDashBoard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEmployeeLogin.resx">
+      <DependentUpon>FormEmployeeLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEmployees.resx">
+      <DependentUpon>FormEmployees.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLibraryLoan.resx">
       <DependentUpon>FormLibraryLoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,9 +160,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReturn.resx">
       <DependentUpon>FormReturn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormReturnBook.resx">
-      <DependentUpon>FormReturnBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -196,6 +204,7 @@
     <Content Include="Liberay Management System\books_library_shelves_138556_1920x1080.jpg" />
     <Content Include="Liberay Management System\close.png" />
     <Content Include="Liberay Management System\deash1.jpg" />
+    <None Include="Resources\reload.png" />
     <None Include="Resources\dashboard.png" />
     <None Include="Resources\refresh.png" />
     <None Include="Resources\open-book.png" />

@@ -96,7 +96,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(31, 78);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(742, 170);
+            this.panel1.Size = new System.Drawing.Size(1030, 170);
             this.panel1.TabIndex = 3;
             // 
             // panel3
@@ -110,7 +110,7 @@
             this.panel3.Controls.Add(this.tbPublisherID);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(371, 0);
+            this.panel3.Location = new System.Drawing.Point(659, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(371, 170);
             this.panel3.TabIndex = 1;

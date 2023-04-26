@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLoanDetail = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvLoan = new System.Windows.Forms.DataGridView();
@@ -39,7 +40,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbLoanID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnLoanDetail = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoan)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +70,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1036, 570);
             this.panel1.TabIndex = 4;
+            // 
+            // btnLoanDetail
+            // 
+            this.btnLoanDetail.Location = new System.Drawing.Point(657, 58);
+            this.btnLoanDetail.Name = "btnLoanDetail";
+            this.btnLoanDetail.Size = new System.Drawing.Size(142, 45);
+            this.btnLoanDetail.TabIndex = 9;
+            this.btnLoanDetail.Text = "Search loan detail";
+            this.btnLoanDetail.UseVisualStyleBackColor = true;
+            this.btnLoanDetail.Click += new System.EventHandler(this.btnLoanDetail_Click);
             // 
             // btnSearch
             // 
@@ -150,16 +160,6 @@
             this.label2.Size = new System.Drawing.Size(53, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Loan ID";
-            // 
-            // btnLoanDetail
-            // 
-            this.btnLoanDetail.Location = new System.Drawing.Point(657, 58);
-            this.btnLoanDetail.Name = "btnLoanDetail";
-            this.btnLoanDetail.Size = new System.Drawing.Size(142, 45);
-            this.btnLoanDetail.TabIndex = 9;
-            this.btnLoanDetail.Text = "Search loan detail";
-            this.btnLoanDetail.UseVisualStyleBackColor = true;
-            this.btnLoanDetail.Click += new System.EventHandler(this.btnLoanDetail_Click);
             // 
             // FormLoan
             // 

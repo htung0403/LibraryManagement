@@ -49,6 +49,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnOverdue = new System.Windows.Forms.Button();
+            this.btnEngaged = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.lIBRARYDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lIBRARYDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).BeginInit();
@@ -71,7 +73,7 @@
             // 
             this.dgvMember.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMember.Location = new System.Drawing.Point(31, 220);
+            this.dgvMember.Location = new System.Drawing.Point(40, 282);
             this.dgvMember.Name = "dgvMember";
             this.dgvMember.RowHeadersWidth = 51;
             this.dgvMember.RowTemplate.Height = 24;
@@ -81,11 +83,11 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(360, 609);
+            this.btnSearch.Location = new System.Drawing.Point(146, 221);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(112, 44);
             this.btnSearch.TabIndex = 19;
-            this.btnSearch.Text = "SEARCH";
+            this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -232,11 +234,33 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Members";
             // 
+            // btnOverdue
+            // 
+            this.btnOverdue.Location = new System.Drawing.Point(342, 221);
+            this.btnOverdue.Name = "btnOverdue";
+            this.btnOverdue.Size = new System.Drawing.Size(112, 44);
+            this.btnOverdue.TabIndex = 21;
+            this.btnOverdue.Text = "Overdue readers";
+            this.btnOverdue.UseVisualStyleBackColor = true;
+            this.btnOverdue.Click += new System.EventHandler(this.btnOverdue_Click);
+            // 
+            // btnEngaged
+            // 
+            this.btnEngaged.Location = new System.Drawing.Point(545, 221);
+            this.btnEngaged.Name = "btnEngaged";
+            this.btnEngaged.Size = new System.Drawing.Size(112, 44);
+            this.btnEngaged.TabIndex = 22;
+            this.btnEngaged.Text = "Engaged readers";
+            this.btnEngaged.UseVisualStyleBackColor = true;
+            this.btnEngaged.Click += new System.EventHandler(this.btnEngaged_Click);
+            // 
             // FormMembers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 687);
+            this.Controls.Add(this.btnEngaged);
+            this.Controls.Add(this.btnOverdue);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
@@ -280,5 +304,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.DateTimePicker dtpStart;
+        private System.Windows.Forms.Button btnOverdue;
+        private System.Windows.Forms.Button btnEngaged;
     }
 }

@@ -31,4 +31,5 @@ D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.Ad
 D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.FormLoan.resources
 D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.FormReturn.resources
 D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.AddLoanDetail.resources
-D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.FormReturnBook.resources
+D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.FormEmployees.resources
+D:\DBMS\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.FormEmployeeLogin.resources

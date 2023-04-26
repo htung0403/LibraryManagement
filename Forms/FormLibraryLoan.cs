@@ -41,7 +41,25 @@ namespace LibraryManagement.Forms
 
         private void traToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormReturnBook f = new FormReturnBook();
+            FormReturn f = new FormReturn();
+            OpenChildForm(f, null);
+        }
+
+        private void FormLibraryLoan_Load(object sender, EventArgs e)
+        {
+            FormLoan f = new FormLoan();
+            OpenChildForm(f, null);
+        }
+
+        private void loanReceiptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLoan f = new FormLoan();
+            OpenChildForm(f, null);
+        }
+
+        private void returnReceiptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormReturn f = new FormReturn();
             OpenChildForm(f, null);
         }
     }

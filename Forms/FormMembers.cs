@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -58,9 +59,72 @@ namespace LibraryManagement.Forms
                 MessageBox.Show("Không hợp lệ: " + ex.Message);
             }
         }
-       private void btnSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
+            int id = 0;
+            if (!int.TryParse(tbID.Text.Trim(), out id))
+            {
+                id = 0;
+            }
+            string name = tbName.Text.Trim();
+            string addr = tbAddress.Text.Trim();
+            string personalID = tbPersonalID.Text.Trim();
 
+            DateTime? startDate = null;
+            if (!string.IsNullOrEmpty(dtpStart.Text.Trim()))
+            {
+                startDate = DateTime.Parse(dtpStart.Text.Trim());
+            }
+
+            DateTime? endDate = null;
+            if (!string.IsNullOrEmpty(dtpEnd.Text.Trim()))
+            {
+                endDate = DateTime.Parse(dtpEnd.Text.Trim());
+            }
+
+            // Tạo câu lệnh SQL để truy vấn sử dụng function
+            string query = "SELECT * FROM dbo.TimKiemDocGia(@MaDG, @TenDG, @DiaChi, @CMND, @NgayBatDau, @NgayKetThuc)";
+            using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+            {
+                adapter.SelectCommand.CommandType = CommandType.Text;
+
+                adapter.SelectCommand.Parameters.AddWithValue("@MaDG", id == 0 ? (object)DBNull.Value : id);
+                adapter.SelectCommand.Parameters.AddWithValue("@TenDG", string.IsNullOrEmpty(name) ? (object)DBNull.Value : name);
+                adapter.SelectCommand.Parameters.AddWithValue("@DiaChi", string.IsNullOrEmpty(addr) ? (object)DBNull.Value : addr);
+                adapter.SelectCommand.Parameters.AddWithValue("@CMND", string.IsNullOrEmpty(personalID) ? (object)DBNull.Value : personalID);
+                adapter.SelectCommand.Parameters.AddWithValue("@NgayBatDau", startDate.HasValue ? (object)startDate.Value : DBNull.Value);
+                adapter.SelectCommand.Parameters.AddWithValue("@NgayKetThuc", endDate.HasValue ? (object)endDate.Value : DBNull.Value);
+                // Thực hiện truy vấn SQL
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    dgvMember.DataSource = dt;
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy độc giả nào phù hợp với từ khóa tìm kiếm");
+                }
+            }
+        }
+
+        private void btnOverdue_Click(object sender, EventArgs e)
+        {
+            adapter = new SqlDataAdapter("SELECT * FROM DocGiaQuaHan", conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            dgvMember.DataSource = dt;
+        }
+
+        private void btnEngaged_Click(object sender, EventArgs e)
+        {
+            adapter = new SqlDataAdapter("SELECT * FROM DocGiaThamGia", conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            dgvMember.DataSource = dt;
         }
     }
 }

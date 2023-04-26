@@ -43,32 +43,32 @@
             this.traToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1094, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1094, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // muonToolStripMenuItem
             // 
-            this.muonToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.muonToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.muonToolStripMenuItem.Name = "muonToolStripMenuItem";
-            this.muonToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
+            this.muonToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
             this.muonToolStripMenuItem.Text = "Loan Management";
             this.muonToolStripMenuItem.Click += new System.EventHandler(this.muonToolStripMenuItem_Click);
             // 
             // traToolStripMenuItem
             // 
-            this.traToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.traToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.traToolStripMenuItem.Name = "traToolStripMenuItem";
-            this.traToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
+            this.traToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.traToolStripMenuItem.Text = "Return Management";
             this.traToolStripMenuItem.Click += new System.EventHandler(this.traToolStripMenuItem_Click);
             // 
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMain.Location = new System.Drawing.Point(0, 28);
+            this.panelMain.Location = new System.Drawing.Point(0, 30);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1094, 659);
+            this.panelMain.Size = new System.Drawing.Size(1094, 657);
             this.panelMain.TabIndex = 1;
             // 
             // FormLibraryLoan
@@ -82,6 +82,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormLibraryLoan";
             this.Text = "FormLibraryLoan";
+            this.Load += new System.EventHandler(this.FormLibraryLoan_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

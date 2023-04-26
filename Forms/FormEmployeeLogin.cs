@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
-namespace LibraryManagement
+namespace LibraryManagement.Forms
 {
-    public partial class LoginForm : Form
+    public partial class FormEmployeeLogin : Form
     {
+        private Form activeForm;
+
         SqlConnection conn = new SqlConnection(
         new SqlConnectionStringBuilder()
         {
@@ -25,17 +25,32 @@ namespace LibraryManagement
             Password = "MatKhau"
         }.ConnectionString
         );
-        public LoginForm()
+        public FormEmployeeLogin()
         {
             InitializeComponent();
         }
+        private void OpenChildForm(Form childForm, object btnSender)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
 
-        private void btLogin_Click(object sender, EventArgs e)
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panel3.Controls.Add(childForm);
+            panel3.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "DangNhapC#";
+            cmd.CommandText = "DangNhapC#_2";
             cmd.Parameters.AddWithValue("@UserName", txtUsername.Text);
             cmd.Parameters.AddWithValue("@Password", txtPass.Text);
             cmd.Connection = conn;
@@ -45,10 +60,8 @@ namespace LibraryManagement
             if (code == 1)
             {
                 MessageBox.Show("Chào mừng đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DashBoard f = new DashBoard();
-                f.Show();
-                this.Hide();
-
+                FormEmployees f = new FormEmployees();
+                OpenChildForm(f, sender);
             }
             else if (code == 2)
             {
@@ -65,10 +78,6 @@ namespace LibraryManagement
                 txtUsername.Focus();
             }
             conn.Close();
-            
-            //conn.Open();
-            //string s = conn.State.ToString();
-            //MessageBox.Show(s, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void txtPass_TextChanged(object sender, EventArgs e)
@@ -118,14 +127,7 @@ namespace LibraryManagement
 
                 // Tải hình ảnh mới từ đường dẫn eye_image_path vào PictureBox
                 picBoxShow.Image = hide_image;
-            }        
-        }
-
-        private void picBoxClose_Click(object sender, EventArgs e)
-        {
-            DialogResult dg = MessageBox.Show("Bạn có muốn thoát ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dg == DialogResult.Yes)
-                Application.Exit();
+            }
         }
     }
 }

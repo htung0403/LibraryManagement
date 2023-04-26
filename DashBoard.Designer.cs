@@ -29,31 +29,33 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnEmployee = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnMembers = new System.Windows.Forms.Button();
+            this.btnMember = new System.Windows.Forms.Button();
             this.btnBooks = new System.Windows.Forms.Button();
             this.btnLibraryLoan = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbClose = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelMenu.Controls.Add(this.btnEmployee);
             this.panelMenu.Controls.Add(this.button5);
             this.panelMenu.Controls.Add(this.button4);
             this.panelMenu.Controls.Add(this.panel3);
-            this.panelMenu.Controls.Add(this.btnMembers);
+            this.panelMenu.Controls.Add(this.btnMember);
             this.panelMenu.Controls.Add(this.btnBooks);
             this.panelMenu.Controls.Add(this.btnLibraryLoan);
             this.panelMenu.Controls.Add(this.btnDashboard);
@@ -65,6 +67,23 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(252, 687);
             this.panelMenu.TabIndex = 3;
+            // 
+            // btnEmployee
+            // 
+            this.btnEmployee.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnEmployee.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmployee.FlatAppearance.BorderSize = 0;
+            this.btnEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmployee.ForeColor = System.Drawing.Color.Black;
+            this.btnEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmployee.Location = new System.Drawing.Point(0, 303);
+            this.btnEmployee.Name = "btnEmployee";
+            this.btnEmployee.Size = new System.Drawing.Size(252, 50);
+            this.btnEmployee.TabIndex = 14;
+            this.btnEmployee.Text = "Employees";
+            this.btnEmployee.UseVisualStyleBackColor = false;
+            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // button5
             // 
@@ -106,22 +125,22 @@
             this.panel3.Size = new System.Drawing.Size(252, 57);
             this.panel3.TabIndex = 11;
             // 
-            // btnMembers
+            // btnMember
             // 
-            this.btnMembers.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnMembers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnMembers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMembers.FlatAppearance.BorderSize = 0;
-            this.btnMembers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMembers.ForeColor = System.Drawing.Color.Black;
-            this.btnMembers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMembers.Location = new System.Drawing.Point(0, 253);
-            this.btnMembers.Name = "btnMembers";
-            this.btnMembers.Size = new System.Drawing.Size(252, 50);
-            this.btnMembers.TabIndex = 10;
-            this.btnMembers.Text = "Members";
-            this.btnMembers.UseVisualStyleBackColor = false;
-            this.btnMembers.Click += new System.EventHandler(this.btnMembers_Click);
+            this.btnMember.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnMember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnMember.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMember.FlatAppearance.BorderSize = 0;
+            this.btnMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMember.ForeColor = System.Drawing.Color.Black;
+            this.btnMember.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMember.Location = new System.Drawing.Point(0, 253);
+            this.btnMember.Name = "btnMember";
+            this.btnMember.Size = new System.Drawing.Size(252, 50);
+            this.btnMember.TabIndex = 10;
+            this.btnMember.Text = "Members";
+            this.btnMember.UseVisualStyleBackColor = false;
+            this.btnMember.Click += new System.EventHandler(this.btnMembers_Click);
             // 
             // btnBooks
             // 
@@ -202,17 +221,17 @@
             this.panelLogo.Size = new System.Drawing.Size(252, 103);
             this.panelLogo.TabIndex = 8;
             // 
-            // pictureBox2
+            // pbClose
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = global::LibraryManagement.Properties.Resources.close;
-            this.pictureBox2.Location = new System.Drawing.Point(1299, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 28);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbClose.Image = global::LibraryManagement.Properties.Resources.close;
+            this.pbClose.Location = new System.Drawing.Point(1299, 12);
+            this.pbClose.Name = "pbClose";
+            this.pbClose.Size = new System.Drawing.Size(35, 28);
+            this.pbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbClose.TabIndex = 2;
+            this.pbClose.TabStop = false;
+            this.pbClose.Click += new System.EventHandler(this.pbClose_Click);
             // 
             // panel4
             // 
@@ -228,7 +247,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMain.Location = new System.Drawing.Point(252, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1094, 687);
+            this.panelMain.Size = new System.Drawing.Size(1093, 687);
             this.panelMain.TabIndex = 5;
             // 
             // DashBoard
@@ -239,7 +258,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1346, 687);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pbClose);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panelMenu);
@@ -247,30 +266,32 @@
             this.Name = "DashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "2q";
+            this.Load += new System.EventHandler(this.DashBoard_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbClose;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnLibraryLoan;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Button btnMembers;
+        private System.Windows.Forms.Button btnMember;
         private System.Windows.Forms.Button btnBooks;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Button btnEmployee;
     }
 }
 
